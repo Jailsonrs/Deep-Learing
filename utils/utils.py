@@ -4,9 +4,9 @@ import collections
 import numpy
 
 def contar(count_list: list[int]) -> collections.defaultdict(int):
-    count_dict = collections.defaultdict(int)
     if(isinstance(count_list, str)):
         count_list = ast.literal_eval(count_list)
+    count_dict = collections.defaultdict(int)
     count_list.pop(0)
     for i in count_list:
         if i in count_dict:
