@@ -53,16 +53,14 @@ def __buld_model__(self):
     return(self.Smodel)
     
 
-
-# BASE_MODEL = init_base_model()
-# INPUT_A = Input(shape = (28,28,), name = 'left_in')
-# OUTPUT_A = BASE_MODEL(INPUT_A)
-
-# INPUT_B = Input(shape = (28,28,), name = 'right_in' )
-# OUTPUT_B = BASE_MODEL(INPUT_B)
-
-# DISTANCE = tf.math.reduce_euclidean_norm
-# DISTANCE_METRIC = tf.keras.layers.Lambda(DISTANCE)([OUTPUT_A, OUTPUT_B])
-
-# FINAL_MODEL = Model(inputs = [INPUT_A, INPUT_B], outputs = [DISTANCE_METRIC])
-# plot_model(FINAL_MODEL, "finalmodel.png",True, True, True)
+if __name__ == '__main__':
+    BASE_MODEL = init_base_model()
+    INPUT_A = Input(shape = (28,28,), name = 'left_in')
+    OUTPUT_A = BASE_MODEL(INPUT_A)
+    INPUT_B = Input(shape = (28,28,), name = 'right_in' )
+    OUTPUT_B = BASE_MODEL(INPUT_B)
+    
+    DISTANCE = tf.math.reduce_euclidean_norm
+    DISTANCE_METRIC = tf.keras.layers.Lambda(DISTANCE)([OUTPUT_A, OUTPUT_B])
+    FINAL_MODEL = Model(inputs = [INPUT_A, INPUT_B], outputs = [DISTANCE_METRIC])
+    plot_model(FINAL_MODEL, "finalmodel.png",True, True, True)
