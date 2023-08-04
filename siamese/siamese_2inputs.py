@@ -27,10 +27,7 @@ class BaseArch(tf.keras.layers.Layer):
         self.LAYER = Dense(256, activation = 'relu', name = 'trdbase')(self.LAYER)
         self.MODEL = Model(inputs = self.INPUT, outputs = self.LAYER)
         return(self.MODEL)
-    
-
-
-
+        
 MM = BaseArch()
 mm = MM.build()
 
@@ -54,6 +51,7 @@ def __buld_model__(self):
     
 
 if __name__ == '__main__':
+    
     BASE_MODEL = init_base_model()
     INPUT_A = Input(shape = (28,28,), name = 'left_in')
     OUTPUT_A = BASE_MODEL(INPUT_A)
